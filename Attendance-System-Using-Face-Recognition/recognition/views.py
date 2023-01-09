@@ -127,7 +127,7 @@ def create_dataset(username):
 		# @params with the millisecond of delay 1
 		cv2.waitKey(1)
 		#To get out of the loop
-		if(sampleNum>300):
+		if(sampleNum>70):
 			break
 	
 	#Stoping the videostream
@@ -541,7 +541,7 @@ def home(request):
 
 @login_required
 def dashboard(request):
-	if(request.user.username=='admin'):
+	if(request.user.username=='vietanh'):
 		print("admin")
 		return render(request, 'recognition/admin_dashboard.html')
 	else:
@@ -551,7 +551,7 @@ def dashboard(request):
 
 @login_required
 def add_photos(request):
-	if request.user.username!='admin':
+	if request.user.username!='vietanh':
 		return redirect('not-authorised')
 	if request.method=='POST':
 		form=usernameForm(request.POST)
@@ -798,7 +798,7 @@ def mark_your_attendance_out(request):
 
 @login_required
 def train(request):
-	if request.user.username!='admin':
+	if request.user.username!='vietanh':
 		return redirect('not-authorised')
 
 	training_dir='face_recognition_data/training_dataset'
@@ -878,7 +878,7 @@ def view_attendance_home(request):
 
 @login_required
 def view_attendance_date(request):
-	if request.user.username!='admin':
+	if request.user.username!='vietanh':
 		return redirect('not-authorised')
 	qs=None
 	time_qs=None
@@ -917,7 +917,7 @@ def view_attendance_date(request):
 
 @login_required
 def view_attendance_employee(request):
-	if request.user.username!='admin':
+	if request.user.username!='vietanh':
 		return redirect('not-authorised')
 	time_qs=None
 	present_qs=None

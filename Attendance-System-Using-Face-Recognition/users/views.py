@@ -35,7 +35,7 @@ def hours_vs_date_every_employee():
 
 @login_required
 def register(request):
-	if request.user.username!='admin':
+	if request.user.username!='vietanh':
 		return redirect('not-authorised')
 	if request.method=='POST':
 		form=UserCreationForm(request.POST)
